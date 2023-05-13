@@ -11,7 +11,7 @@ FONT_COLOR = "#ffff99"
 
 root = Tk()
 root.title("YouTube Downloader")
-root.geometry("600x380")
+root.geometry("1000x600")
 root.resizable(False, False)
 root.config(bg=BACKGROUND_COLOR)
 
@@ -85,35 +85,35 @@ def finish(stream=None, Chunk=None, file_handle=None, remaining=None):
 
 ## Logo
 yrLabel1 = Label(root, text="You", bg=BACKGROUND_COLOR, fg="red", font=("Arial", 20))
-yrLabel1.place(relx=0.45, rely=0.33, anchor="center")
+yrLabel1.place(relx=0.45, rely=0.3, anchor="center")
 yrLabel2 = Label(root, text="Tube", bg=BACKGROUND_COLOR, fg="white", font=("Arial", 20))
-yrLabel2.place(relx=0.55, rely=0.33, anchor="center")
+yrLabel2.place(relx=0.55, rely=0.3, anchor="center")
 # Logo
-ytLogo = PhotoImage(file="D:\\images\\Logo.png").subsample(7)
+ytLogo = PhotoImage(file="Logo.png").subsample(7)
 ytTitle = Label(root, image=ytLogo, bg=BACKGROUND_COLOR)
 ytTitle.place(relx=0.5, rely=0.15, anchor="center")
 
 ## YouTube link
 ytLabel = Label(root, text="YouTube Link", bg=BACKGROUND_COLOR, fg=FONT_COLOR)
-ytLabel.place(x=25, y=150)
+ytLabel.place(relx=0.02, rely=0.37)
 ytLink = Entry(root, width=50)
-ytLink.place(x=140, y=150)
+ytLink.place(relx=0.2, rely=0.37)
 # Paste button
 pasteBtn = Button(root, text="  Paste  ", command=paste_url)
-pasteBtn.place(x=455, y=148)
+pasteBtn.place(relx=0.88, rely=0.37)
 
 ## Destination folder
 folderLabel = Label(root, text="Destination", bg=BACKGROUND_COLOR, fg=FONT_COLOR)
-folderLabel.place(x=25, y=190)
+folderLabel.place(relx=0.02, rely=0.46)
 folderLink = Entry(root, width=50)
-folderLink.place(x=140, y=190)
+folderLink.place(relx=0.2, rely=0.46)
 # browse button
 browseBtn = Button(root, text="Browse", command=browse)
-browseBtn.place(x=455, y=188)
+browseBtn.place(relx=0.88, rely=0.45)
 
 # File format selection
 formatLabel = Label(root, text="File Format", bg=BACKGROUND_COLOR, fg=FONT_COLOR)
-formatLabel.place(x=25, y=225)
+formatLabel.place(relx=0.02, rely=0.6)
 format_var = StringVar(value="mp4")
 mp4Radio = Radiobutton(
     root,
@@ -123,25 +123,25 @@ mp4Radio = Radiobutton(
     bg=BACKGROUND_COLOR,
     fg="red",
 )
-mp4Radio.place(x=140, y=225)
-# mp3Radio = Radiobutton(
-#     root,
-#     text="MP3",
-#     variable=format_var,
-#     value="mp3",
-#     bg=BACKGROUND_COLOR,
-#     fg="red",
-# )
-# mp3Radio.place(x=200, y=225)
+mp4Radio.place(relx=0.2, rely=0.6)
+mp3Radio = Radiobutton(
+    root,
+    text="MP3",
+    variable=format_var,
+    value="mp3",
+    bg=BACKGROUND_COLOR,
+    fg="red",
+)
+mp3Radio.place(relx=0.3, rely=0.6)
 
 # Video quality selection
 qualityLabel = Label(root, text="Video Quality", bg=BACKGROUND_COLOR, fg=FONT_COLOR)
-qualityLabel.place(x=25, y=260)
+qualityLabel.place(relx=0.45, rely=0.6)
 quality_var = StringVar()
 quality_var.set(video_quality_options[0])
 qualityDropdown = OptionMenu(root, quality_var, *video_quality_options)
 qualityDropdown.config(width=8)
-qualityDropdown.place(x=140, y=260)
+qualityDropdown.place(relx=0.6, rely=0.59)
 
 # Download button
 downloadBtn = Button(
@@ -152,7 +152,7 @@ downloadBtn = Button(
     fg="#ffffaa",
     font=("Arial", 18),
 )
-downloadBtn.place(relx=0.55, y=260)
+downloadBtn.place(relx=0.4, rely=0.72)
 
 # status
 status = Label(
@@ -163,7 +163,7 @@ status = Label(
     bg="#222226",
     anchor="center",
 )
-status.place(rely=0.98, anchor="sw", relwidth=1)
+status.place(rely=0.98, anchor="sw", relwidth=1, relheight=0.1)
 
 
 mainloop()
